@@ -20,3 +20,8 @@ RSpec::Core::RakeTask.new('spec') do |spec|
   spec.fail_on_error = true
 end
 
+
+task :travis do
+  ENV['TRAVIS'] = 'y'
+  Rake::Task['spec'].execute
+end
